@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 
 class Button1 extends StatelessWidget {
-  const Button1( {super.key, required this.label, required this.textColor } );
+   const Button1( {super.key, required this.label, required this.textColor} );
 
   final String label;
   final Color textColor;
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class Button1 extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           backgroundColor: textColor
       ),
-      onPressed: () {},
+      onPressed: () => onButtonClick(label),
       child: Text(label, style: const TextStyle(
           fontSize: 26, fontWeight: FontWeight.bold, color: Colors.white)),
     );

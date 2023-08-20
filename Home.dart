@@ -11,6 +11,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+
+  var input = '';
+  var output = '';
+
+  onButtonClick(value){
+    if (value == 'AC'){
+      input = '';
+      output = '';
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.sizeOf(context).height;
@@ -26,13 +40,37 @@ class _HomeState extends State<Home> {
       ),
 
       body: Column(
+
         children: [
-          const CustomTextField(),
-          const Spacer(),
+          //.................Screen.......................
+
+          // const CustomTextField(),
+
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              color: AppColors.primaryColor,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 30),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(input, style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.w300)),
+                  Text(output,style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ),
+          ),
+
+          //const Spacer(),
+
+
+          //...............................................Box..............................................
+
           Container(
-            height: screenHeight * 0.6,
+            height: screenHeight * 0.5,
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
             decoration: const BoxDecoration(color: AppColors.boxColor),
 
             child: Column(
@@ -84,14 +122,14 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-                    const SizedBox(width: 20,),
+                    const SizedBox(width: 40),
                     Container(
                       height: 160,
                       width: 70,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: AppColors.buttonColor
                       ),
-                      child: Button1(label: '=',textColor: AppColors.buttonColor),
+                      child: const Button1(label: '=',textColor: AppColors.buttonColor),
                     )
                   ],
                 )
